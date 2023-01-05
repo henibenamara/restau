@@ -1,14 +1,17 @@
 import 'package:ecom/service/article_service.dart';
 import 'package:flutter/material.dart';
 
-class listarticles extends StatefulWidget {
-  
+class listarticlesbycat extends StatefulWidget {
+  listarticlesbycat(this.id,this.name);
+
+  final String?  id;
+  final String?  name;
   @override
-  _listarticlesState createState() => _listarticlesState();
+  _listarticlesbycatState createState() => _listarticlesbycatState();
 }
 
-class _listarticlesState extends State<listarticles> {
-  _listarticlesState();
+class _listarticlesbycatState extends State<listarticlesbycat> {
+  _listarticlesbycatState();
  List<dynamic> _items = [];
   final articleservice _apiService = articleservice();
   @override
@@ -17,7 +20,7 @@ class _listarticlesState extends State<listarticles> {
     _fetchItems();
   }
 void _fetchItems() async {
-    final items = await _apiService.fetchItems();
+    final items = await _apiService.getArtbyCat(widget.id.toString());
     setState(() {
       _items = items;
     });
@@ -26,7 +29,7 @@ void _fetchItems() async {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Les Articles"),
+          title: Text(widget.name.toString()),
           centerTitle: true,
           leading: new IconButton(
             icon: new Icon(Icons.arrow_back, color: Colors.white),

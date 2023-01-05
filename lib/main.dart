@@ -1,4 +1,6 @@
+import 'package:ecom/views/listCategories.dart';
 import 'package:ecom/views/listarticle.dart';
+import 'package:ecom/views/onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +15,12 @@ class MyApp extends StatelessWidget {
     return Center(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/OnBoardingPage',
         routes: {
      
           '/': (context) => listarticles(),
+          '/categories' : (context) => listecategories(),
+          '/OnBoardingPage': (context) => OnBoardingPage(),
 },
       ),
     );

@@ -21,6 +21,25 @@ Future<List<dynamic>> fetchItems() async {
       throw Exception('Failed to load items');
     }
   }
+  Future<List<dynamic>> getAllCat() async {
+    final response = await http.get(Uri.parse('https://mascotte-api.onrender.com/api/categorie'));
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed to load categories');
+    }
+  }
+
+  Future<List<dynamic>> getArtbyCat(String id) async {
+    final response = await http.get(Uri.parse('https://mascotte-api.onrender.com/api/articles/$id'));
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed to load categories');
+    }
+  }
   
   
 
