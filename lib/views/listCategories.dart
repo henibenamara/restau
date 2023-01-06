@@ -13,6 +13,7 @@ class listecategories extends StatefulWidget {
 class _listecategoriesState extends State<listecategories> {
   _listecategoriesState();
   List<dynamic> _items = [];
+  bool _isLoading = true;
   final articleservice _apiService = articleservice();
   @override
   void initState() {
@@ -24,6 +25,7 @@ class _listecategoriesState extends State<listecategories> {
     final items = await _apiService.getAllCat();
     setState(() {
       _items = items;
+      _isLoading = false;
     });
   }
 
@@ -31,11 +33,18 @@ class _listecategoriesState extends State<listecategories> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(30),
+      ),
+    ),  
           title: const Text("Les Categories"),
           
         ),
         drawer: DrawerBASE(context),
-        body: GridView.count(
+        body: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : GridView.count(
           crossAxisCount: 2,
           children: List.generate(_items.length, (index) {
             return InkWell(
