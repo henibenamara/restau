@@ -26,7 +26,7 @@ class OnBoardingPage extends StatelessWidget {
           body: 'Rejoignez-nous',
           footer: Column(
             children: [
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
 
                   Navigator.push(
@@ -34,11 +34,7 @@ class OnBoardingPage extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => listecategories()));
                 },
-                color: Colors.purpleAccent,
-                padding: EdgeInsets.symmetric(horizontal: 50,vertical: 15),
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+                
                 child: Text(
                   "S'authentifier",
                   style: TextStyle(
@@ -48,7 +44,7 @@ class OnBoardingPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20,),
-              RaisedButton(
+              ElevatedButton(
 
                 onPressed: () {
 
@@ -57,11 +53,7 @@ class OnBoardingPage extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => listecategories()));
                 },
-                color: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 70,vertical: 15),
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+              
                 child: Text(
                   "S'inscrire",
                   style: TextStyle(

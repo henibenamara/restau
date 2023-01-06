@@ -1,4 +1,5 @@
 import 'package:ecom/views/listCategories.dart';
+import 'package:ecom/views/home.dart';
 import 'package:ecom/views/listarticle.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ Widget DrawerBASE(BuildContext context) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => listecategories()));
+                        builder: (context) => home()));
               }),
                ListTile(
               leading: Icon(Icons.category),

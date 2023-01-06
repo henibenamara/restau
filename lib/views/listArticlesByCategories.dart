@@ -13,6 +13,8 @@ class listarticlesbycat extends StatefulWidget {
 class _listarticlesbycatState extends State<listarticlesbycat> {
   _listarticlesbycatState();
  List<dynamic> _items = [];
+  bool _isLoading = true;
+  
   final articleservice _apiService = articleservice();
   @override
   void initState() {
@@ -23,12 +25,18 @@ void _fetchItems() async {
     final items = await _apiService.getArtbyCat(widget.id.toString());
     setState(() {
       _items = items;
+      _isLoading = false;
     });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(30),
+      ),
+    ),
           title: Text(widget.name.toString()),
           centerTitle: true,
           leading: new IconButton(
@@ -39,7 +47,9 @@ void _fetchItems() async {
           ),
         ),
         drawer: Drawer(),
-        body:ListView.builder(
+        body:_isLoading
+          ? Center(child: CircularProgressIndicator())
+          : ListView.builder(
         itemCount: _items.length,
         itemBuilder: (context, index) {
           String description = _items[index]['LibArt'];
