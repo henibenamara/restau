@@ -33,7 +33,7 @@ class OnBoardingPage extends StatelessWidget {
                               style: 
                               ElevatedButton.styleFrom(
                                    primary: Colors.purple,
-                                    fixedSize: const Size(170, 30),
+                                    fixedSize: const Size(180, 30),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(50))),
@@ -52,7 +52,7 @@ class OnBoardingPage extends StatelessWidget {
                               style: 
                               ElevatedButton.styleFrom(
                                    primary: Colors.white,
-                                    fixedSize: const Size(170, 30),
+                                    fixedSize: const Size(180, 30),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(50))),
