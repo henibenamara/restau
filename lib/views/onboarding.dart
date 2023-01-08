@@ -1,4 +1,6 @@
+import 'package:ecom/views/home.dart';
 import 'package:ecom/views/listCategories.dart';
+import 'package:ecom/views/login.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,43 +28,43 @@ class OnBoardingPage extends StatelessWidget {
           body: 'Rejoignez-nous',
           footer: Column(
             children: [
-              ElevatedButton(
-                onPressed: () {
-
-                  Navigator.push(
+           ElevatedButton.icon(
+                              
+                              style: 
+                              ElevatedButton.styleFrom(
+                                   primary: Colors.purple,
+                                    fixedSize: const Size(170, 30),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(50))),
+                                icon: const Icon(Icons.login),
+                                onPressed: () =>{ Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => listecategories()));
-                },
-                
-                child: Text(
-                  "S'authentifier",
-                  style: TextStyle(
-                      fontSize: 14,
-                      letterSpacing: 2.2,
-                      color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 20,),
-              ElevatedButton(
-
-                onPressed: () {
-
-                  Navigator.push(
+                          builder: (context) => LoginScreen()))
+                          },
+                                   
+                                label: const Text("S'authentifier",
+                                    style: TextStyle(fontSize: 18))),
+                             SizedBox(height: 20,),
+                ElevatedButton.icon(
+                              
+                              style: 
+                              ElevatedButton.styleFrom(
+                                   primary: Colors.white,
+                                    fixedSize: const Size(170, 30),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(50))),
+                                icon: const Icon(Icons.arrow_forward ,color: Colors.purple,),
+                                onPressed: () =>{ Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => listecategories()));
-                },
-              
-                child: Text(
-                  "S'inscrire",
-                  style: TextStyle(
-                      fontSize: 14,
-                      letterSpacing: 2.2,
-                      color: Colors.purpleAccent),
-
-                ),
-              ),
+                          builder: (context) => home()))},
+                                   
+                                label: const Text("continuer",
+                                    style: TextStyle(fontSize: 18,color: Colors.purple))),
+                        
             ],
           ),
       image: Image.network("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9453c424618659.5633738cf27d2.jpg"),
@@ -89,7 +91,7 @@ class OnBoardingPage extends StatelessWidget {
   );
 
   void goToHome(context) => Navigator.of(context).pushReplacement(
-    MaterialPageRoute(builder: (_) => listecategories()),
+    MaterialPageRoute(builder: (_) => home()),
   );
 
   Widget buildImage(String path) =>

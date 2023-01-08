@@ -1,3 +1,4 @@
+import 'package:ecom/views/home.dart';
 import 'package:ecom/views/listCategories.dart';
 import 'package:ecom/views/listarticle.dart';
 import 'package:ecom/views/onboarding.dart';
@@ -18,9 +19,11 @@ class MyApp extends StatelessWidget {
         initialRoute: '/OnBoardingPage',
         routes: {
      
-          '/': (context) => listarticles(),
+          '/': (context) => home(),
           '/categories' : (context) => listecategories(),
           '/OnBoardingPage': (context) => OnBoardingPage(),
+          
+
 },
       ),
     );

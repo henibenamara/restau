@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:ecom/service/article_service.dart';
+import 'package:ecom/views/addcategories.dart';
 import 'package:ecom/views/listArticlesByCategories.dart';
 import 'package:ecom/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -37,10 +38,33 @@ class _listecategoriesState extends State<listecategories> {
       borderRadius: BorderRadius.vertical(
         bottom: Radius.circular(30),
       ),
-    ),  
-          title: const Text("Les Categories"),
-          
+    ),
+          title: Text("Les Articles"),
+          centerTitle: true,
+          leading: new IconButton(
+            icon: new Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          actions: <Widget>[
+    IconButton(
+      icon: Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  addCategorie()));
+      },
+    )
+  ],
+
         ),
+       
         drawer: DrawerBASE(context),
         body: _isLoading
           ? Center(child: CircularProgressIndicator())

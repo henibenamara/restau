@@ -1,7 +1,8 @@
-import 'dart:html';
-import 'dart:ui';
+
+
 
 import 'package:ecom/service/article_service.dart';
+import 'package:ecom/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class home extends StatefulWidget {
@@ -14,6 +15,7 @@ class _homeState extends State<home> {
   List<dynamic> _items = [];
   List<dynamic> _items1 = [];
   bool _isLoading = true;
+  bool _isLoading1 = true;
   bool _isExpanded = false;
   String _codecat = "";
   String _nomcat = "categories";
@@ -36,7 +38,7 @@ class _homeState extends State<home> {
     final items1 = await _apiService.getArtbyCat(_codecat);
     setState(() {
       _items1 = items1;
-      _isLoading = false;
+      _isLoading1 = false;
     });
   }
 
@@ -51,14 +53,9 @@ class _homeState extends State<home> {
         ),
         title: Text(_nomcat),
         centerTitle: true,
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
+       
       ),
-      drawer: Drawer(),
+      drawer: DrawerBASE(context),
       body: _isLoading
           ? Center(child: CircularProgressIndicator())
           : Column(
@@ -109,8 +106,10 @@ class _homeState extends State<home> {
                   ),
                 ),
                 if (_isExpanded)
-                  Container(
-                    height: MediaQuery.of(context).size.height - 220,
+                 _isLoading1
+          ? Center(child: CircularProgressIndicator())
+          : Container(
+                    height: MediaQuery.of(context).size.height - 240,
                     child: ListView.builder(
                       itemCount: _items1.length,
                       itemBuilder: (context, index) {
@@ -162,7 +161,9 @@ class _homeState extends State<home> {
                                       top: 2.0, bottom: 2.0),
                                   child: FloatingActionButton(
                                     heroTag: "btn2",
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      
+                                    },
                                     child: const Icon(Icons.info),
                                     backgroundColor: Colors.white,
                                     foregroundColor: Colors.purple,

@@ -1,4 +1,8 @@
+import 'package:ecom/models/article.dart';
 import 'package:ecom/service/article_service.dart';
+import 'package:ecom/views/addarticle.dart';
+import 'package:ecom/views/detailArticle.dart';
+import 'package:ecom/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class listarticles extends StatefulWidget {
@@ -41,8 +45,24 @@ void _fetchItems() async {
               Navigator.of(context).pop();
             },
           ),
+          actions: <Widget>[
+    IconButton(
+      icon: Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  addarticle()));
+      },
+    )
+  ],
+
         ),
-        drawer: Drawer(),
+        drawer: DrawerBASE(context),
         body:_isLoading
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
@@ -85,7 +105,12 @@ void _fetchItems() async {
                     child:  FloatingActionButton(
                               heroTag: "btn2",
                               onPressed: () {
-                                
+                                article art = new article(imagepath: _items[index]['imagepath'].toString(),descrip:_items[index]['Descrip'].toString() ,codeArt:_items[index]['CodeArt'].toString() ,prix1: _items[index]['prix1'].toString(),libArt: _items[index]['LibArt'],codeCat: _items[index]['CodeCat'].toString() );
+                                  Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailArticle(art)));
                               },
                               child: const Icon(Icons.info),
                               backgroundColor: Colors.white,
