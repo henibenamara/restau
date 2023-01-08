@@ -82,7 +82,7 @@ class _uploadphotoArticle extends State<uploadphotoArticle> {
                                 icon: const Icon(Icons.camera_alt_outlined),
                                 onPressed: () =>
                                     getImage(source: ImageSource.camera),
-                                label: const Text('ouvrir Camera',
+                                label: const Text('Camera',
                                     style: TextStyle(fontSize: 18))),
                           ),
                           const SizedBox(
@@ -101,7 +101,7 @@ class _uploadphotoArticle extends State<uploadphotoArticle> {
                                 icon: const Icon(Icons.folder_outlined),
                                 onPressed: () =>
                                     getImage(source: ImageSource.gallery),
-                                label: const Text('Select Image',
+                                label: const Text('Dossier',
                                     style: TextStyle(fontSize: 18))),
                           )
                         ],
