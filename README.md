@@ -1,16 +1,32 @@
-# ecom
+# Restau
 
-A new Flutter project.
+An early Flutter app for managing a catalogue of articles and categories, built in 2023 while I was learning Flutter. It is the mobile client for [restau-backend](https://github.com/henibenamara/restau-backend).
 
-## Getting Started
+## What it does
 
-This project is a starting point for a Flutter application.
+- Onboarding screens and a login screen
+- Browse articles and categories, and filter articles by category
+- View an article's details
+- Add and edit articles, including picking an image from the gallery
+- Add categories
 
-A few resources to get you started if this is your first Flutter project:
+## Stack
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Flutter and Dart with the `http` package for the REST calls, plus `introduction_screen`, `image_picker` and `email_validator`.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Project layout
+
+```text
+lib/
+├── views/       screens (home, articles, categories, login, onboarding)
+├── models/      article and response models
+├── service/     REST calls (articleservice)
+├── widgets/     shared widgets (drawer, buttons, background)
+└── constant/    API settings
+```
+
+## Status
+
+This is an early project and I no longer maintain it. It targets Dart 2.x (the SDK constraint in `pubspec.yaml` is below 3.0), so it needs an older Flutter SDK to run, and the API address is hard-coded in `lib/service/article_service.dart` and `lib/constant/app_constant.dart`.
+
+For my current approach to structuring Flutter apps, see [flutter-clean-architecture](https://github.com/henibenamara/flutter-clean-architecture).
